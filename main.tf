@@ -1,11 +1,3 @@
-module "gcp_server" {
-  source = "./modules/gcp"
-
-  name = "sandbox-server"
-  machine_type = var.gcp_machine_type
-  image = var.gcp_instance_image
-}
-
 module "cloudflare_tunnel" {
   source = "./modules/cloudflare/tunnel"
 
@@ -13,5 +5,15 @@ module "cloudflare_tunnel" {
   cloudflare_account_id = var.cloudflare_account_id
   cloudflare_zone_id    = var.cloudflare_zone_id
   cloudflare_zone       = var.cloudflare_zone
-
 }
+
+module "gcp_server" {
+  source = "./modules/gcp"
+
+  name = "sandbox-server"
+  startup_script = "server-setup.sh"
+  cloudflare_tunnel_token = module.cloudflare_tunnel.tunnel_id
+  machine_type = var.gcp_machine_type
+  image = var.gcp_instance_image
+}
+

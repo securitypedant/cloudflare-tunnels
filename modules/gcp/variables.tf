@@ -1,4 +1,12 @@
+variable "cloudflare_tunnel_token" {
+  type = string
+}
+
 variable "name" {
+  type = string
+}
+
+variable "startup_script" {
   type = string
 }
 
