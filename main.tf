@@ -4,7 +4,7 @@ variable "servers" {
       name = "terraform1"
     },
     "server2" = {
-      name = "terraform1"
+      name = "terraform2"
     }
   }   
 }

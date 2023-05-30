@@ -38,7 +38,7 @@ services:
         container_name: cloudflared
         depends_on:
             - server
-        command: tunnel --no-autoupdate --token ${cloudflare_tunnel_token}
+        command: tunnel run --token ${cloudflare_tunnel_token}
 
 EOF
 
