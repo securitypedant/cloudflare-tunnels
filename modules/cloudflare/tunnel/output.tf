@@ -1,3 +1,3 @@
-output tunnel_id {
-    value = cloudflare_tunnel.tunnel.id
+output tunnel_token {
+    value = cloudflare_tunnel.tunnel.tunnel_token
 }

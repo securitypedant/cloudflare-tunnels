@@ -10,6 +10,18 @@ resource "cloudflare_tunnel" "tunnel" {
   secret     = random_id.tunnel_secret.b64_std
 }
 
+# Tunnel configuration
+resource "cloudflare_tunnel_config" "tunnel_config" {
+  account_id = "${var.cloudflare_account_id}"
+  tunnel_id  = cloudflare_tunnel.tunnel.id
+
+  config {
+    ingress_rule {
+      service  = "http://server:80"
+    }
+  }
+}
+
 # DNS settings to CNAME to tunnel target
 resource "cloudflare_record" "tunnel_dns" {
   zone_id = "${var.cloudflare_zone_id}"

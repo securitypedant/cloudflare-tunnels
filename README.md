@@ -3,6 +3,7 @@
 ## TODO
 - Learn as much as possible about modules.
 - Look at a module registry. Do we design a Cloudflare Zero Trust module?
+- Better understand the networking. Do we need to create a VPC? Or should use the default.
 
 
 To target a specific module
